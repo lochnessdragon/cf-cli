@@ -1,8 +1,13 @@
 package com.github.lochnessdragon;
 
 import org.apache.commons.cli.Options;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import de.codeshelf.consoleui.prompt.ConsolePrompt;
+import de.codeshelf.consoleui.prompt.PromtResultItemIF;
+import de.codeshelf.consoleui.prompt.builder.PromptBuilder;
+import jline.TerminalFactory;
+import org.fusesource.jansi.AnsiConsole;
+import java.io.IOException;
+import java.util.HashMap;
 
 // CMD line args like this
 // author <name>
@@ -15,11 +20,15 @@ import org.apache.logging.log4j.Logger;
 //  downloads a list of mods
 
 public class CFCLI {
-	public static Logger LOGGER = LogManager.getLogger();
 
 	public static void main(String[] args) {
-		Options options = new Options();
-
-		LOGGER.info("CurseForge CLI Tool version 0.1");
-	}
+		ICFAPIProvider cfAPI = new CFAPIProvider();
+		
+		CFAuthor lochnessdragon = cfAPI.getAuthor("lochnessdragon");
+		System.out.println("Author #" + author.getId() + ": " + lochnessdragon.getName());
+		System.out.println("Projects:");
+		for(ICFProject project : author.projects) {
+			System.out.println(" - " + project.getId() + ": " + project.getName());
+		}
+	}	
 }

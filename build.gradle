@@ -21,9 +21,8 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    // Include log4j library
-    implementation 'org.apache.logging.log4j:log4j-api:2.17.2'
-    implementation 'org.apache.logging.log4j:log4j-core:2.17.2'
+    // Include the commonui lib
+		implementation 'de.codeshelf.consoleui:consoleui:0.0.13'
 
     // common cli argument parsing library
     // https://mvnrepository.com/artifact/commons-cli/commons-cli

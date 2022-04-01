@@ -6,8 +6,9 @@ public class CFAPIProvider implements ICFAPIProvider {
 
     @Override
     public CFAuthor getAuthor(String name) {
-        // TODO Auto-generated method stub
-        return null;
+        RESTApi api = new RESTApi();
+				api.get(BASE_URL + "author/search/" + name);
+        return new CFAuthor("lochnessdragon", 12390);
     }
 
     @Override
